@@ -4,7 +4,7 @@
 (function(){
 	"use strict";
 
-	var jThread = window.jThread = jThread = function ( thread, done ) {
+	var jThread = window.jThread = function ( thread, done ) {
 
 		if ( this instanceof jThread ) return jThread(thread, done);
 
