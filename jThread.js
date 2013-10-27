@@ -6,7 +6,7 @@
 
 	var jThread = window.jThread = jThread = function ( thread, done ) {
 
-		if ( this instanceof jThread ) return jThread(thread, done , msg);
+		if ( this instanceof jThread ) return jThread(thread, done);
 
 		if (
 			! thread || typeof(thread) !== 'function'
