@@ -4,10 +4,9 @@ jThread
 A simple way to use multi-threading in javascript. Based on web workers.
 
 
-
 Using:
-<script type="text/javascript" src="jThread.js"></script>
-<script type="text/javascript">
+< script type="text/javascript" src="jThread.js" >< /script >
+< script type="text/javascript" >
 
 	// function for Thread
 	var worker = function ( arr ) {
@@ -48,4 +47,4 @@ Using:
 	)( [1,2,3,4,5,6,7] );
 	
 
-</script>
+< /script >
