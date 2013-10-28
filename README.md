@@ -27,9 +27,7 @@ Use script tag for include "jThread.js" file.
 		
 		var i = arr.length;
 		while ( --i > 0 ) {
-			
 			// do something
-			
 		}//while
 		
 		return arr;
@@ -39,9 +37,7 @@ Use script tag for include "jThread.js" file.
 	// done function
 	// this function will be called when function "worker" makes return ;
 	var done = function ( arr ) {
-	
 		console.log(arr);
-		
 	};//fun
 	
 	
