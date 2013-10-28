@@ -6,14 +6,17 @@ A simple way to use multi-threading in javascript. Based on web workers.
 Syntax: 
 ------
 
-	jThread ( worker, done );
+	var thread = jThread ( worker, done );
+	    thread( param );
 	
 	* this function returns new function based on worker and done;
 	* returned function takes one param to send it to worker-function.
 	
-	* worker - function for new thread;
+	* worker - function for new thread; Only one param to getting. Example: work = function(arr){...};
 	
 	* done - function called when worked will be finished;
+	
+	* param - only one param, but you can use object or array like group for several params;
 
 Using:
 ------
