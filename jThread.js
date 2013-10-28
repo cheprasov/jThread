@@ -14,9 +14,10 @@
 		) return null;
 
 		if (! window.Worker || ! window.URL || ! window.URL.createObjectURL || ! window.Blob ) {
-
+			
+			//return simple async function
 			return function ( msg ) {
-				done(thread(msg));
+				setTimeout(function(){done(thread(msg))},1);
 			}//fun
 
 		}//if
