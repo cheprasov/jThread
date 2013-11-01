@@ -23,6 +23,8 @@ Using:
 ------
 Use tag 'script' for include "jThread.js" file.
 
+	// Example 1
+
 	// function for Thread
 	var worker = function ( arr ) {
 		
@@ -41,6 +43,8 @@ Use tag 'script' for include "jThread.js" file.
 		console.log(arr);
 	};//fun
 	
+	
+	// Example 2
 	
 	// create new Thread-function.
 	var thread = jThread( worker, done );
