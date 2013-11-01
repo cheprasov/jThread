@@ -13,9 +13,9 @@ Syntax:
 	* this function returns new function based on worker and done;
 	* returned function takes one param to send it to worker-function.
 	
-	* worker - function for new thread; Only one param to getting. Example: work = function(arr){...};
+	* worker (data) - function for new thread; Only one param to getting. Example: work = function(arr){...};
 	
-	* done - function called when worked will be finished;
+	* done (data, status) - function called when worked will be finished;
 	
 	* param - only one param, but you can use object or array like group for several params;
 
