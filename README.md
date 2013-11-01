@@ -21,7 +21,7 @@ Syntax:
 
 Using:
 ------
-Use script tag for include "jThread.js" file.
+Use tag 'script' for include "jThread.js" file.
 
 	// function for Thread
 	var worker = function ( arr ) {
