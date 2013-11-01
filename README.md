@@ -43,12 +43,12 @@ Use tag 'script' for include "jThread.js" file.
 		console.log(arr);
 	};//fun
 	
-	
-	// Example 2
-	
 	// create new Thread-function.
 	var thread = jThread( worker, done );
 		thread( [1,2,3,4,5,6,7] );
+	
+	
+	// Example 2
 		
 	// You can use simple calling like this
 	jThread(
