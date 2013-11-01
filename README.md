@@ -47,7 +47,7 @@ Use tag 'script' for include "jThread.js" file.
 	var thread = jThread( worker, done );
 		thread( [1,2,3,4,5,6,7] );
 	
-	
+
 	// Example 2
 		
 	// You can use simple calling like this
