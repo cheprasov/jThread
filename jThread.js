@@ -17,7 +17,7 @@
 			|| ! done || typeof(done) !== 'function'
 		) return null;
 
-		if (1 || ! window.Worker || ! window.URL || ! window.URL.createObjectURL || ! window.Blob ) {
+		if ( ! window.Worker || ! window.URL || ! window.URL.createObjectURL || ! window.Blob ) {
 
 			//return simple async function
 			var times = 0;
