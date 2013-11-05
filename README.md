@@ -52,14 +52,15 @@ Use tag 'script' for include "jThread.js" file.
 	
 	// create new Thread-function.
 	var thread = jThread( worker, done );
-		thread( [1,2,3,4,5,6,7] );
-	
+		thread( [1, 2, 3, 4, 5] );
+
+
 
 	// Example 2
 		
 	// You can use simple calling like this
 	jThread(
-		function (a, b ,c) {
+		function (a, b, c) {
 			//...
 			return a * b * c;
 		}
