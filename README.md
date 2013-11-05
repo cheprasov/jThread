@@ -62,7 +62,6 @@ Use tag 'script' for include "jThread.js" file.
 	// You can use simple calling like this
 	jThread(
 		function (a, b, c) {
-			//...
 			return a * b * c;
 		}
 		,function (res, status) {
