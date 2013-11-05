@@ -33,7 +33,7 @@ Use tag 'script' for include "jThread.js" file.
 	// Example 1
 
 	// function for Thread
-	var worker = function ( arr ) {
+	var worker = function (arr) {
 		
 		var i = arr.length;
 		while ( --i > 0 ) {
@@ -46,7 +46,7 @@ Use tag 'script' for include "jThread.js" file.
 	
 	// done function
 	// this function will be called when function "worker" makes return ;
-	var done = function ( arr ) {
+	var done = function (arr) {
 		console.log(arr);
 	};//fun
 	
@@ -64,7 +64,7 @@ Use tag 'script' for include "jThread.js" file.
 			//...
 			return a * b * c;
 		}
-		,function ( res , status ) {
-			alert( res + ' : ' + status );
+		,function (res, status) {
+			alert(res +' : '+ status);
 		}
 	)( 10, 15, 25 );
