@@ -12,7 +12,7 @@ Syntax:
 	    thread( param [, param2 [, ...]] );
 	
 	* this function returns new function based on worker and done;
-	* returned function takes one param to send it to worker-function.
+	* returned function takes params to send it to worker-function.
 	* param - one or several params;
 	
 	* worker (data) - function for new thread;  Example: work = function(a, b, c){...};
