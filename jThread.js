@@ -21,7 +21,7 @@
 
 			//return simple async function
 			var times = 0;
-			return function ( ) {
+			return function (/* args */) {
 				var args = Array.prototype.slice.call(arguments);
 				if ( config.once && times ) return ;
 				setTimeout(function(){
