@@ -27,7 +27,7 @@
 				setTimeout(function(){
 					if ( config.once && times ) return ;
 					times += 1;
-					done ( thread.apply(thread, args), 'timer' )
+					done ( thread.apply(thread, args), 'timer' );
 				},1);
 			}//fun
 
