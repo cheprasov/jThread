@@ -10,7 +10,7 @@
 			once : false
 		}
 
-		if ( this instanceof jThread ) return jThread(thread, done);
+		if ( this instanceof jThread ) return jThread(thread, done, config);
 
 		if (
 			! thread || typeof(thread) !== 'function'
