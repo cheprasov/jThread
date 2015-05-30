@@ -1,6 +1,6 @@
 {
   "name": "jThread",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "A simple way to use multi-threading in javascript. Based on web workers.",
   "main": "jThread.js",
   "keywords": [
