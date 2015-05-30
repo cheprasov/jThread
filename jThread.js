@@ -1,62 +1,53 @@
 // Author: Alexander Cheprasov
 // Email: alexander@cheprasov.com
 
-(function(){
+(function() {
 	"use strict";
 
-	var jThread = window.jThread = function ( thread, done, config ) {
+	var jThread = window.jThread = function(workerFunction, doneFunction) {
 
-		config = config || {
-			once : false
+		if (this instanceof jThread) {
+			return jThread(workerFunction, doneFunction);
 		}
 
-		if ( this instanceof jThread ) return jThread(thread, done, config);
+		if (typeof(workerFunction) !== 'function' || typeof(doneFunction) !== 'function') {
+			throw new Error('Incorrect arguments for jThread');
+		}
 
-		if (
-			! thread || typeof(thread) !== 'function'
-			|| ! done || typeof(done) !== 'function'
-		) return null;
-
-		if ( ! window.Worker || ! window.URL || ! window.URL.createObjectURL || ! window.Blob ) {
-
+		if (!window.Worker || !window.URL || !window.URL.createObjectURL || !window.Blob ) {
 			//return simple async function
-			var times = 0;
 			return function (/* args */) {
 				var args = Array.prototype.slice.call(arguments);
-				if ( config.once && times ) return ;
-				setTimeout(function(){
-					if ( config.once && times ) return ;
-					times += 1;
-					done ( thread.apply(thread, args), 'timer' );
-				},1);
-			}//fun
+				setTimeout(function() {
+					doneFunction(workerFunction.apply(workerFunction, args), 'timer');
+				}, 1);
+			}
+		}
 
-		}//if
-
-		var worker = new Worker (
-				window.URL.createObjectURL(
-					new Blob(
-						['self.onmessage = function ( wrk ) { var f = '+ Function.toString.call(thread) +'; self.postMessage( { status : "done", result : f.apply(f, wrk.data.args ) } ); '+ ( config.once ? ' self.close(); ' : '' ) +' };']
-						,{type : 'text/javascript'}
-					)
+		var worker = new Worker(
+			window.URL.createObjectURL(
+				new Blob([
+						'self.onmessage = function(wrk) {' +
+							'var f = ' + Function.toString.call(workerFunction) + ';' +
+							'self.postMessage({status: "worker", result: f.apply(f, wrk.data.args)});' +
+						'};'
+					],
+					{type : 'text/javascript'}
 				)
-			);
+			)
+		);
 
-		worker.onmessage = function ( wrk ) {
-			if ( typeof(wrk.data) === 'object' && wrk.data.status ) {
-				done (wrk.data.result, wrk.data.status);
-			} else {
-				done (wrk.data);
-			}//if
-		}//fun
+		worker.onmessage = function(wrk) {
+			doneFunction (wrk.data.result, wrk.data.status);
+		}
 
-		return function (/* args */) {
+		return function(/* args */) {
 			var obj = {
 				args : Array.prototype.slice.call(arguments)
 			};
 			worker.postMessage(obj);
-		}//fun
+		}
 
-	}//fun
+	}
 
 }());

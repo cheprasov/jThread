@@ -1,30 +1,23 @@
 jThread
 =======
 
-A simple way to use multi-threading in javascript. Based on web workers.
-<br>
+Simple way to use multi thread in javascript.
 Web workers without a separate Javascript file.
 
 Syntax: 
 ------
 
-	var thread = jThread ( worker, done, config );
-	    thread( param [, param2 [, ...]] );
+	var thread = jThread(workerFunction, onDoneFunction);
+	    thread(param [, param2 [, ...]]);
 	
-	* this function returns new function based on worker and done;
-	* returned function takes params to send it to worker-function.
-	* param - one or several params;
-	
-	* worker (data) - function for new thread;  Example: work = function(a, b, c){...};
-	
-	* done (data, status) - function called when worked will be finished;
-	* status === 'done' - using Worker.
-	* status === 'timer' - using Timers (Browser not support works, for old Browsers )
+	* This function returns a new function based web worker (or timeout).
+	* Returned function takes one or several params.
 
-	* default config = {
-	*		once : false // The worker function will be called more that one times
-	*	}
+	* workerFunction - function for new thread;  Example: workerFunction = function(a, b, c) {return a+ b + c;}
 	
+	* onDoneFunction (result, status) - function called when worker function will be finished;
+	* status === 'worker' - using Web Worker.
+	* status === 'timer' - using Timers (Browser not support web workers, for old Browsers)
 
 
 Using:
@@ -34,26 +27,24 @@ Use tag 'script' for include "jThread.js" file.
 	// Example 1
 
 	// function for Thread
-	var worker = function (arr) {
-		
+	var worker = function(arr) {
 		var i = arr.length;
-		while ( --i > 0 ) {
+		while (--i > 0) {
 			// do something
-		}//while
-		
+		}
 		return arr;
-		
-	};// fun
+	};
 	
-	// done function
+	// onDone function
 	// this function will be called when function "worker" makes return ;
-	var done = function (arr) {
-		console.log(arr);
-	};//fun
+	var onDone = function(result) {
+		console.log(result);
+	};
 	
 	// create new Thread-function.
-	var thread = jThread( worker, done );
-		thread( [1, 2, 3, 4, 5] );
+	var thread = jThread(worker, onDone);
+	// and execute it with array
+	thread([1, 2, 3, 4, 5]);
 
 
 
@@ -61,10 +52,10 @@ Use tag 'script' for include "jThread.js" file.
 		
 	// You can use simple calling like this
 	jThread(
-		function (a, b, c) {
+		function(a, b, c) {
 			return a * b * c;
 		}
-		,function (res, status) {
-			alert(res +' : '+ status);
+		,function(result, status) {
+			alert(result + ' : ' + status);
 		}
-	)( 10, 15, 25 );
+	)(10, 15, 25);
