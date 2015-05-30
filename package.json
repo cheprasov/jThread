@@ -1,13 +1,16 @@
 {
   "name": "jThread",
-  "version": "1.0.0",
-  "description": "A simple way to use multi-threading in javascript. Based on web workers.",
+  "version": "2.0.0",
+  "author": "Alexander Cheprasov",
+  "email": "alexander@cheprasov.com",
+  "description": "Simple way to use threads in javascript. Based on web workers.",
   "main": "jThread.js",
   "keywords": [
     "jThread",
     "web worker",
     "worker",
-    "multi thread"
+    "multi thread",
+    "threads"
   ],
   "license": "MIT",
   "ignore": [
