@@ -20,7 +20,7 @@
 				var args = Array.prototype.slice.call(arguments);
 				setTimeout(function() {
 					doneFunction(workerFunction.apply(workerFunction, args), 'timer');
-				}, 1);
+				}, 0);
 			}
 		}
 
